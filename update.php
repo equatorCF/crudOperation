@@ -1,12 +1,13 @@
 <?php
 include 'conn.php';
+$id=$_GET['updateid'];
 if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $email=$_POST['email'];
     $mobile=$_POST['mobile'];
     $password=$_POST['password'];
     
-    $sql="insert into `crud` (name,email,mobile,password) values('$name','$email','$mobile','$password')";
+    $sql="update `crud` set id='$id',name='$name',email='$email',mobile='$mobile', password='$password'";
     $result=mysqli_query($conn,$sql);
     if($result){
         header('location:display.php');
